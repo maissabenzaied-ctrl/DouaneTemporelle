@@ -1,19 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#F2F4F8">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 1.Esm l app -->
+        <TextView
+            android:id="@+id/tv_titre_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="DouaneTemporelle"
+            android:textColor="#172554"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <!-- 2. Nom du voyageur -->
+        <TextView
+            android:id="@+id/tv_nom_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nom du voyageur"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#172554"/>
+
+        <EditText
+            android:id="@+id/et_nom_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrez votre nom"
+            android:inputType="textPersonName"
+            android:autofillHints="name"
+            android:layout_marginBottom="18dp"/>
+
+        <!-- 3. Année de naissance -->
+        <TextView
+            android:id="@+id/tv_naissance_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Année de naissance"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#172554"/>
+
+        <EditText
+            android:id="@+id/et_naissance_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Exemple : 1990"
+            android:inputType="number"
+            android:layout_marginBottom="18dp"/>
+
+        <!-- 4. Année de destination -->
+        <TextView
+            android:id="@+id/tv_destination_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Année de destination"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#172554"/>
+
+        <EditText
+            android:id="@+id/et_destination_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Exemple : 2050"
+            android:inputType="number"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- 5. Motif du voyage -->
+        <TextView
+            android:id="@+id/tv_motif_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Motif du voyage"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#172554"/>
+
+        <RadioGroup
+            android:id="@+id/rg_motif_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="25dp">
+
+            <RadioButton
+                android:id="@+id/rb_tourisme_mb"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:text="Tourisme" />
+
+            <RadioButton
+                android:id="@+id/rb_passe_mb"
+                android:layout_width="203dp"
+                android:layout_height="wrap_content"
+                android:text="Modification du passé" />
+
+            <RadioButton
+                android:id="@+id/rb_fuite_mb"
+                android:layout_width="174dp"
+                android:layout_height="wrap_content"
+                android:text="Fuite" />
+
+        </RadioGroup>
+
+        <!-- 6. Bouton d'inspection -->
+        <Button
+            android:id="@+id/btn_inspecter_mb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inspecter le profil"
+            android:textSize="16sp"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
