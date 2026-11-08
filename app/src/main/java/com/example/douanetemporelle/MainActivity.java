@@ -1,3 +1,4 @@
+
 package com.example.douanetemporelle;
 
 import android.content.Intent;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 3. Nربطou les composants Java m3a les IDs mta3 XML
+        // 3. Nrabtou les composants Java m3a les IDs mta3 XML
         etNom = findViewById(R.id.et_nom_hs);
         etNaissance = findViewById(R.id.et_naissance_hs);
         etDestination = findViewById(R.id.et_destination_hs);
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         spMotif.setAdapter(adapter);
 
-        // 6. Ki l'utilisateur yenzel 3al bouton, n3aytou lel méthode
+        // 6. Ki l'utilisateur yenzel 3al bouton, n3aytou lel methode
         btnInspecter.setOnClickListener(v -> inspecterProfil());
     }
 
