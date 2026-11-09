@@ -111,13 +111,25 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // 11. N7adhrou Intent explicite bech nemchiw lel Activity thenya
+        // 11. Nethabtou eli l'année de destination ma tkounch 9bal l'année de naissance
+        if (anneeDestination < anneeNaissance) {
+
+            Toast.makeText(
+                    this,
+                    "L'année de destination doit être supérieure ou égale à l'année de naissance",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return;
+        }
+
+        // 12. N7adhrou Intent explicite bech nemchiw lel Activity thenya
         Intent intent = new Intent(
                 MainActivity.this,
                 VerificationActivity.class
         );
 
-        // 12. Naba3thou les données lel VerificationActivity
+        // 13. Naba3thou les données lel VerificationActivity
         intent.putExtra(
                 IntentKeys.getKey(MATRICULE, "NOM_VOYAGEUR"),
                 nom
@@ -138,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 motif
         );
 
-        // 13. N7ellou l'écran theni
+        // 14. N7ellou l'écran theni
         startActivity(intent);
     }
 }
