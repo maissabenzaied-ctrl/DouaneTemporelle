@@ -1,130 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F4F8">
+    android:fillViewport="true"
+    android:background="#263B35">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:layout_margin="10dp"
+        android:background="#F2EBDD"
+        android:gravity="center_horizontal">
 
-        <!-- 1.Esm l app -->
+        <!-- 1. Titre principal -->
         <TextView
-            android:id="@+id/tv_titre_mb"
+            android:id="@+id/tv_titre_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:text="DouaneTemporelle"
-            android:textColor="#172554"
+            android:text="DOUANE TEMPORELLE"
+            android:textColor="#263B35"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:gravity="center"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="10dp" />
 
-
-        <!-- 2. Nom du voyageur -->
+        <!-- 2. Sous-titre -->
         <TextView
-            android:id="@+id/tv_nom_mb"
+            android:id="@+id/tv_sous_titre_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nom du voyageur"
+            android:text="BUREAU DE CONTRÔLE DES VOYAGEURS TEMPORELS"
+            android:textColor="#713F43"
+            android:textSize="11sp"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#172554"/>
+            android:letterSpacing="0.06"
+            android:gravity="center"
+            android:layout_marginBottom="22dp" />
+
+        <!-- 3. Ligne decorative -->
+        <View
+            android:layout_width="65dp"
+            android:layout_height="2dp"
+            android:background="#B69A70"
+            android:layout_marginBottom="28dp" />
+
+        <!-- 4. Nom du voyageur -->
+        <TextView
+            android:id="@+id/tv_nom_label_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOM DU VOYAGEUR"
+            android:textColor="#263B35"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.04"
+            android:layout_marginBottom="6dp" />
 
         <EditText
-            android:id="@+id/et_nom_mb"
+            android:id="@+id/et_nom_hs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Entrez votre nom"
+            android:layout_height="54dp"
+            android:hint="Saisir votre nom complet"
             android:inputType="textPersonName"
-            android:autofillHints="name"
-            android:layout_marginBottom="18dp"/>
+            android:textColor="#263B35"
+            android:textColorHint="#8A8A80"
+            android:textSize="15sp"
+            android:backgroundTint="#B69A70"
+            android:padding="12dp"
+            android:layout_marginBottom="22dp" />
 
-        <!-- 3. Année de naissance -->
+        <!-- 5. Annee de naissance -->
         <TextView
-            android:id="@+id/tv_naissance_mb"
+            android:id="@+id/tv_naissance_label_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Année de naissance"
+            android:text="ANNÉE DE NAISSANCE"
+            android:textColor="#263B35"
+            android:textSize="13sp"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#172554"/>
+            android:letterSpacing="0.04"
+            android:layout_marginBottom="6dp" />
 
         <EditText
-            android:id="@+id/et_naissance_mb"
+            android:id="@+id/et_naissance_hs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Exemple : 1990"
+            android:layout_height="54dp"
+            android:hint="Exemple : 2002"
             android:inputType="number"
-            android:layout_marginBottom="18dp"/>
+            android:textColor="#263B35"
+            android:textColorHint="#8A8A80"
+            android:textSize="15sp"
+            android:backgroundTint="#B69A70"
+            android:padding="12dp"
+            android:layout_marginBottom="22dp" />
 
-        <!-- 4. Année de destination -->
+        <!-- 6. Annee de destination -->
         <TextView
-            android:id="@+id/tv_destination_mb"
+            android:id="@+id/tv_destination_label_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Année de destination"
+            android:text="ANNÉE DE DESTINATION"
+            android:textColor="#263B35"
+            android:textSize="13sp"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#172554"/>
+            android:letterSpacing="0.04"
+            android:layout_marginBottom="6dp" />
 
         <EditText
-            android:id="@+id/et_destination_mb"
+            android:id="@+id/et_destination_hs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Exemple : 2050"
+            android:layout_height="54dp"
+            android:hint="Exemple : 2150"
             android:inputType="number"
-            android:layout_marginBottom="20dp"/>
+            android:textColor="#263B35"
+            android:textColorHint="#8A8A80"
+            android:textSize="15sp"
+            android:backgroundTint="#B69A70"
+            android:padding="12dp"
+            android:layout_marginBottom="22dp" />
 
-        <!-- 5. Motif du voyage -->
+        <!-- 7. Motif du voyage -->
         <TextView
-            android:id="@+id/tv_motif_mb"
+            android:id="@+id/tv_motif_label_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Motif du voyage"
+            android:text="MOTIF DU VOYAGE"
+            android:textColor="#263B35"
+            android:textSize="13sp"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="#172554"/>
+            android:letterSpacing="0.04"
+            android:layout_marginBottom="6dp" />
 
-        <RadioGroup
-            android:id="@+id/rg_motif_mb"
+        <Spinner
+            android:id="@+id/sp_motif_hs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="25dp">
+            android:layout_height="54dp"
+            android:backgroundTint="#B69A70"
+            android:layout_marginBottom="30dp" />
 
-            <RadioButton
-                android:id="@+id/rb_tourisme_mb"
-                android:layout_width="183dp"
-                android:layout_height="wrap_content"
-                android:text="Tourisme" />
-
-            <RadioButton
-                android:id="@+id/rb_passe_mb"
-                android:layout_width="203dp"
-                android:layout_height="wrap_content"
-                android:text="Modification du passé" />
-
-            <RadioButton
-                android:id="@+id/rb_fuite_mb"
-                android:layout_width="174dp"
-                android:layout_height="wrap_content"
-                android:text="Fuite" />
-
-        </RadioGroup>
-
-        <!-- 6. Bouton d'inspection -->
+        <!-- 8. Bouton inspection -->
         <Button
-            android:id="@+id/btn_inspecter_mb"
+            android:id="@+id/btn_inspecter_hs"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="INSPECTER LE PROFIL"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:letterSpacing="0.04"
+            android:textColor="#263B35"
+            android:backgroundTint="#B69A70"
+            android:minHeight="56dp"
+            android:padding="12dp" />
+
+        <!-- 9. Signature officielle -->
+        <TextView
+            android:id="@+id/tv_signature_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Inspecter le profil"
-            android:textSize="16sp"
-            android:padding="12dp"/>
+            android:text="SERVICE OFFICIEL DE CONTRÔLE TEMPOREL"
+            android:textColor="#8A806F"
+            android:textSize="9sp"
+            android:letterSpacing="0.08"
+            android:gravity="center"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="12dp" />
 
     </LinearLayout>
 
