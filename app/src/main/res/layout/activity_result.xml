@@ -8,51 +8,72 @@
     android:padding="28dp"
     android:background="#263B35">
 
-    <!-- 1. Titre du resultat -->
-    <TextView
-        android:id="@+id/tv_titre_resultat_hs"
+    <!-- 1. Carte principale -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DÉCISION OFFICIELLE"
-        android:textColor="#F2EBDD"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.06"
+        android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="30dp" />
+        android:padding="25dp"
+        android:background="@drawable/bg_carte_hs"
+        android:elevation="6dp">
 
-    <!-- 2. Ligne decorative -->
-    <View
-        android:layout_width="75dp"
-        android:layout_height="2dp"
-        android:background="#B69A70"
-        android:layout_marginBottom="35dp" />
+        <!-- 2. Nom de l'application -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DOUANE TEMPORELLE"
+            android:textColor="#A58B5E"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.16"
+            android:gravity="center"
+            android:layout_marginBottom="25dp" />
 
-    <!-- 3. Message personnalise -->
-    <TextView
-        android:id="@+id/tv_message_resultat_hs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bon voyage !"
-        android:textColor="#F2EBDD"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:lineSpacingExtra="8dp"
-        android:layout_marginBottom="45dp" />
+        <!-- 3. Separateur decoratif -->
+        <View
+            android:layout_width="42dp"
+            android:layout_height="2dp"
+            android:background="#C6A66B"
+            android:layout_marginBottom="25dp" />
 
-    <!-- 4. Bouton nouveau voyageur -->
-    <Button
-        android:id="@+id/btn_nouveau_voyageur_hs"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="NOUVEAU VOYAGEUR"
-        android:textColor="#263B35"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.04"
-        android:backgroundTint="#B69A70"
-        android:minHeight="56dp"
-        android:padding="12dp" />
+        <!-- 4. Message du resultat -->
+        <TextView
+            android:id="@+id/tv_message_resultat_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Résultat du voyage"
+            android:textColor="#17283D"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:lineSpacingExtra="8dp"
+            android:padding="8dp" />
+
+        <!-- 5. Separateur inferieur -->
+        <View
+            android:layout_width="42dp"
+            android:layout_height="2dp"
+            android:background="#C6A66B"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp" />
+
+        <!-- 6. Bouton nouveau voyageur -->
+        <Button
+            android:id="@+id/btn_nouveau_voyageur_hs"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="NOUVEAU VOYAGEUR"
+            android:textColor="#F7F4ED"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:background="@drawable/bg_bouton_hs"
+            android:backgroundTint="@null"
+            android:minHeight="54dp"
+            android:padding="8dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -2,42 +2,69 @@
 package com.example.douanetemporelle;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class VerificationActivity extends AppCompatActivity {
 
-    // 1. N3arfu les composants eli bech nesta3mlouhom
+    // 1. N3arfou les composants mta3 l'interface
     private TextView tvNom;
     private TextView tvAge;
     private TextView tvMotif;
+    private TextView tvAjouterPhoto;
+    private ImageView imgPhoto;
     private Button btnApprouver;
     private Button btnRefuser;
 
-    // 2. Nesta9blou les données eli ba3aththom MainActivity
+    // 2. Nesta3mlou nafs el matricule fil 3 Activities
     private static final String MATRICULE = "1234";
 
     private String nomVoyageur;
     private int ageTemporel;
     private String motifVoyage;
 
+    // 3. N7adhrou el outil eli y5alli el utilisateur ye5tar photo men galerie
+    private ActivityResultLauncher<String> selecteurPhoto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification);
 
-        // 3. Nrabtou les composants Java m3a XML
+        // 4. Nrabtou les composants Java m3a XML
         tvNom = findViewById(R.id.tv_nom_verification_hs);
         tvAge = findViewById(R.id.tv_age_verification_hs);
         tvMotif = findViewById(R.id.tv_motif_verification_hs);
 
+        imgPhoto = findViewById(R.id.img_photo_hs);
+        tvAjouterPhoto = findViewById(R.id.tv_ajouter_photo_hs);
+
         btnApprouver = findViewById(R.id.btn_approuver_hs);
         btnRefuser = findViewById(R.id.btn_refuser_hs);
 
-        // 4. Nesta9blou les informations men Intent
+        // 5. Nconfiguriw choix photo comme fonctionnalite supplementaire optionnelle
+        selecteurPhoto = registerForActivityResult(
+                new ActivityResultContracts.GetContent(),
+                uri -> {
+                    if (uri != null) {
+                        imgPhoto.setImageURI(uri);
+                        tvAjouterPhoto.setText("Photo ajoutée");
+                    }
+                }
+        );
+
+        // 6. Ki yenzel el utilisateur 3al zone photo, n7ellou galerie
+        imgPhoto.setOnClickListener(v -> selecteurPhoto.launch("image/*"));
+        tvAjouterPhoto.setOnClickListener(v -> selecteurPhoto.launch("image/*"));
+
+        // 7. Nesta9blou les informations men MainActivity
         Intent intent = getIntent();
 
         nomVoyageur = intent.getStringExtra(
@@ -58,33 +85,33 @@ public class VerificationActivity extends AppCompatActivity {
                 IntentKeys.getKey(MATRICULE, "MOTIF")
         );
 
-        // 5. N7asbou l'age temporel
+        // 8. N7asbou l'age temporel
         ageTemporel = anneeDestination - anneeNaissance;
 
-        // 6. Naffichiw les informations fil écran
+        // 9. Naffichiw les informations fil écran
         tvNom.setText("Nom : " + nomVoyageur);
         tvAge.setText("Âge temporel : " + ageTemporel + " ans");
         tvMotif.setText("Motif : " + motifVoyage);
 
-        // 7. Nverifiw condition mta3 nombre premier
+        // 10. Nverifiw condition mta3 nombre premier
         boolean modificationPasse =
                 "Modification du passé".equals(motifVoyage);
 
         boolean differencePremiere = estPremier(ageTemporel);
 
-        // 8. Ken les deux conditions sont vraies, n3atلو bouton Approuver
+        // 11. Ken les deux conditions s7a7, n3atلو bouton Approuver
         if (modificationPasse && differencePremiere) {
             btnApprouver.setEnabled(false);
         }
 
-        // 9. Ki nenzel 3al Approuver, naba3thou verdict true
+        // 12. Ki nenzel 3al Approuver, naba3thou verdict true
         btnApprouver.setOnClickListener(v -> envoyerVerdict(true));
 
-        // 10. Ki nenzel 3al Refuser, naba3thou verdict false
+        // 13. Ki nenzel 3al Refuser, naba3thou verdict false
         btnRefuser.setOnClickListener(v -> envoyerVerdict(false));
     }
 
-    // 11. Méthode bech nverifiw ken nombre premier
+    // 14. Méthode bech nverifiw ken nombre premier
     private boolean estPremier(int nombre) {
 
         if (nombre <= 1) {
@@ -100,7 +127,7 @@ public class VerificationActivity extends AppCompatActivity {
         return true;
     }
 
-    // 12. Méthode bech naba3thou le verdict lel ResultActivity
+    // 15. Méthode bech naba3thou le verdict lel ResultActivity
     private void envoyerVerdict(boolean verdict) {
 
         Intent intent = new Intent(

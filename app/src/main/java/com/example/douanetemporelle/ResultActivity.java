@@ -1,3 +1,4 @@
+
 package com.example.douanetemporelle;
 
 import android.content.Intent;
@@ -11,25 +12,42 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultActivity extends AppCompatActivity {
 
-    // 1. N3arfu les composants mta3 l'interface
+    // 1. N3arfou les composants mta3 l'interface
     private LinearLayout layoutResultat;
     private TextView tvMessage;
     private Button btnNouveauVoyageur;
 
-    // 2. Nesta3mlou nafs matricule provisoire
+    // 2. Nesta3mlou nafs el matricule fil 3 Activities
     private static final String MATRICULE = "1234";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 3. Naffichiw layout mta3 resultat
         setContentView(R.layout.activity_result);
 
-        // 3. Nrabtou les composants Java m3a XML
+        // 4. Nrabtou les composants bel XML
+        initialiserVues();
+
+        // 5. Nesta9blou les données men VerificationActivity
+        afficherResultat();
+
+        // 6. Nربطou bouton nouveau voyageur
+        btnNouveauVoyageur.setOnClickListener(v -> retournerAccueil());
+    }
+
+    // 7. N3aynou les composants men XML
+    private void initialiserVues() {
+
         layoutResultat = findViewById(R.id.layout_resultat_hs);
         tvMessage = findViewById(R.id.tv_message_resultat_hs);
         btnNouveauVoyageur = findViewById(R.id.btn_nouveau_voyageur_hs);
+    }
 
-        // 4. Nesta9blou le nom w le verdict men VerificationActivity
+    // 8. N9raw verdict w esm el voyageur
+    private void afficherResultat() {
+
         Intent intent = getIntent();
 
         String nom = intent.getStringExtra(
@@ -41,44 +59,48 @@ public class ResultActivity extends AppCompatActivity {
                 false
         );
 
-        // 5. Nverifiw el nom bech ma yodhhorch null
+        // 9. N7ottou esm par défaut ken ma fama ch esm
         if (nom == null || nom.trim().isEmpty()) {
             nom = "Voyageur";
         }
 
-        // 6. Naffichiw message w nbaddlou couleur selon verdict
+        // 10. Naffichiw resultat 7asb el verdict
         if (verdict) {
 
-            // El voyage accepté : Deep Forest
-            layoutResultat.setBackgroundColor(Color.parseColor("#263B35"));
+            // 10.1 El voyage accepté: fond vert
+            layoutResultat.setBackgroundColor(
+                    Color.parseColor("#263B35")
+            );
+
             tvMessage.setText("Bon voyage " + nom);
 
         } else {
 
-            // El voyage refusé : Burgundy
-            layoutResultat.setBackgroundColor(Color.parseColor("#713F43"));
+            // 10.2 El voyage refusé: fond rouge
+            layoutResultat.setBackgroundColor(
+                    Color.parseColor("#713F43")
+            );
+
             tvMessage.setText(
                     nom + " est en état d'arrestation temporelle"
             );
         }
+    }
 
-        // 7. Ki nenzel 3al bouton, narj3ou lel MainActivity
-        btnNouveauVoyageur.setOnClickListener(v -> {
+    // 11. Nرج3ou lel MainActivity w nsakrou les anciennes Activities
+    private void retournerAccueil() {
 
-            Intent retour = new Intent(
-                    ResultActivity.this,
-                    MainActivity.class
-            );
+        Intent retour = new Intent(
+                ResultActivity.this,
+                MainActivity.class
+        );
 
-            // 8. Nsakkrou les Activities eli 9bal
-            retour.setFlags(
-                    Intent.FLAG_ACTIVITY_CLEAR_TOP
-                            | Intent.FLAG_ACTIVITY_SINGLE_TOP
-            );
+        retour.setFlags(
+                Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        | Intent.FLAG_ACTIVITY_SINGLE_TOP
+        );
 
-            startActivity(retour);
-            finish();
-        });
+        startActivity(retour);
+        finish();
     }
 }
-// TEST SYNCHRONISATION
