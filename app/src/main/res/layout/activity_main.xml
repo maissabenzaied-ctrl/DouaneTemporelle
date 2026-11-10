@@ -2,172 +2,221 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#263B35">
+    android:background="#F3F0E8"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:layout_margin="10dp"
-        android:background="#F2EBDD"
-        android:gravity="center_horizontal">
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp">
 
-        <!-- 1. Titre principal -->
+        <!-- 1. Houni el en-tete mta3 l'application -->
         <TextView
-            android:id="@+id/tv_titre_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DOUANE TEMPORELLE"
-            android:textColor="#263B35"
+            android:textColor="#A58B5E"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.24"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 2. Houni el titre principal mta3 el formulaire -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ENREGISTREMENT DU\nVOYAGEUR"
+            android:textColor="#17283D"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:letterSpacing="0.08"
+            android:fontFamily="serif"
             android:gravity="center"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="10dp" />
+            android:letterSpacing="0.01"
+            android:layout_marginBottom="13dp" />
 
-        <!-- 2. Sous-titre -->
-        <TextView
-            android:id="@+id/tv_sous_titre_hs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BUREAU DE CONTRÔLE DES VOYAGEURS TEMPORELS"
-            android:textColor="#713F43"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.06"
-            android:gravity="center"
-            android:layout_marginBottom="22dp" />
-
-        <!-- 3. Ligne decorative -->
+        <!-- 3. Houni el ligne decoratif -->
         <View
-            android:layout_width="65dp"
+            android:layout_width="42dp"
             android:layout_height="2dp"
-            android:background="#B69A70"
-            android:layout_marginBottom="28dp" />
+            android:background="#C6A66B"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp" />
 
-        <!-- 4. Nom du voyageur -->
+        <!-- 4. Houni sous-titre mta3 el formulaire -->
         <TextView
-            android:id="@+id/tv_nom_label_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NOM DU VOYAGEUR"
-            android:textColor="#263B35"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.04"
-            android:layout_marginBottom="6dp" />
+            android:text="FORMULAIRE OFFICIEL DE VOYAGE TEMPOREL"
+            android:textColor="#8C8579"
+            android:textSize="8sp"
+            android:letterSpacing="0.10"
+            android:gravity="center"
+            android:layout_marginBottom="25dp" />
 
-        <EditText
-            android:id="@+id/et_nom_hs"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:hint="Saisir votre nom complet"
-            android:inputType="textPersonName"
-            android:textColor="#263B35"
-            android:textColorHint="#8A8A80"
-            android:textSize="15sp"
-            android:backgroundTint="#B69A70"
-            android:padding="12dp"
-            android:layout_marginBottom="22dp" />
-
-        <!-- 5. Annee de naissance -->
-        <TextView
-            android:id="@+id/tv_naissance_label_hs"
+        <!-- 5. Houni el carte principale elli fiha les informations -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ANNÉE DE NAISSANCE"
-            android:textColor="#263B35"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.04"
-            android:layout_marginBottom="6dp" />
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="@drawable/bg_carte_hs"
+            android:elevation="4dp">
 
-        <EditText
-            android:id="@+id/et_naissance_hs"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:hint="Exemple : 2002"
-            android:inputType="number"
-            android:textColor="#263B35"
-            android:textColorHint="#8A8A80"
-            android:textSize="15sp"
-            android:backgroundTint="#B69A70"
-            android:padding="12dp"
-            android:layout_marginBottom="22dp" />
+            <!-- 6. Houni titre mta3 el carte -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informations personnelles"
+                android:textColor="#17283D"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:layout_marginBottom="12dp" />
 
-        <!-- 6. Annee de destination -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E3D9C7"
+                android:layout_marginBottom="18dp" />
+
+            <!-- 7. Houni label mta3 esm el voyageur -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NOM DU VOYAGEUR"
+                android:textColor="#243B59"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.07"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 8. Houni el voyageur yekteb esmou -->
+            <EditText
+                android:id="@+id/et_nom_hs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_champ_hs"
+                android:hint="Saisir le nom complet"
+                android:textColor="#17283D"
+                android:textColorHint="#918B80"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:inputType="textCapWords"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 9. Houni label mta3 3am el naissance -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ANNÉE DE NAISSANCE"
+                android:textColor="#243B59"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.07"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 10. Houni el voyageur yekteb 3am elli tould fih -->
+            <EditText
+                android:id="@+id/et_naissance_hs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_champ_hs"
+                android:hint="Ex. : 2000"
+                android:textColor="#17283D"
+                android:textColorHint="#918B80"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 11. Houni label mta3 3am el destination -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ANNÉE DE DESTINATION"
+                android:textColor="#243B59"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.07"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 12. Houni el voyageur yekteb 3am elli bech yemchi fih -->
+            <EditText
+                android:id="@+id/et_destination_hs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_champ_hs"
+                android:hint="Ex. : 2149"
+                android:textColor="#17283D"
+                android:textColorHint="#918B80"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:maxLength="4"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 13. Houni label mta3 motif el voyage -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MOTIF DU VOYAGE"
+                android:textColor="#243B59"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.07"
+                android:layout_marginBottom="8dp" />
+
+            <!-- 14. Houni el voyageur yekhtar motif el voyage -->
+            <Spinner
+                android:id="@+id/sp_motif_hs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_champ_hs"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginBottom="20dp" />
+
+            <!-- 15. Houni el bouton y3addi les informations lel verification -->
+            <Button
+                android:id="@+id/btn_inspecter_hs"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="INSPECTER LE PROFIL"
+                android:textColor="#F7F4ED"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06"
+                android:background="@drawable/bg_bouton_hs"
+                android:backgroundTint="@null"
+                android:minHeight="52dp"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <!-- 16. Houni el pied de page mta3 l'application -->
         <TextView
-            android:id="@+id/tv_destination_label_hs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ANNÉE DE DESTINATION"
-            android:textColor="#263B35"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.04"
-            android:layout_marginBottom="6dp" />
-
-        <EditText
-            android:id="@+id/et_destination_hs"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:hint="Exemple : 2150"
-            android:inputType="number"
-            android:textColor="#263B35"
-            android:textColorHint="#8A8A80"
-            android:textSize="15sp"
-            android:backgroundTint="#B69A70"
-            android:padding="12dp"
-            android:layout_marginBottom="22dp" />
-
-        <!-- 7. Motif du voyage -->
-        <TextView
-            android:id="@+id/tv_motif_label_hs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MOTIF DU VOYAGE"
-            android:textColor="#263B35"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.04"
-            android:layout_marginBottom="6dp" />
-
-        <Spinner
-            android:id="@+id/sp_motif_hs"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:backgroundTint="#B69A70"
-            android:layout_marginBottom="30dp" />
-
-        <!-- 8. Bouton inspection -->
-        <Button
-            android:id="@+id/btn_inspecter_hs"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="INSPECTER LE PROFIL"
-            android:textStyle="bold"
-            android:textSize="13sp"
-            android:letterSpacing="0.04"
-            android:textColor="#263B35"
-            android:backgroundTint="#B69A70"
-            android:minHeight="56dp"
-            android:padding="12dp" />
-
-        <!-- 9. Signature officielle -->
-        <TextView
-            android:id="@+id/tv_signature_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SERVICE OFFICIEL DE CONTRÔLE TEMPOREL"
-            android:textColor="#8A806F"
-            android:textSize="9sp"
-            android:letterSpacing="0.08"
+            android:textColor="#A58B5E"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.09"
             android:gravity="center"
-            android:layout_marginTop="26dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginTop="22dp" />
 
     </LinearLayout>
 

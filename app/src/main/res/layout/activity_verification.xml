@@ -3,105 +3,247 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="#263B35"
-    android:padding="8dp">
+    android:weightSum="1"
+    android:background="#F3F0E8">
 
-    <!-- 1. Taswira 3al isar b weight 0.3 -->
-    <ImageView
-        android:id="@+id/img_passeport_hs"
+    <!-- 1. Houni el partie gauche: 30% mel espace total kif ma talab el professeur -->
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.3"
-        android:src="@drawable/ic_temporal_seal_hs"
-        android:scaleType="fitCenter"
-        android:background="#263B35"
-        android:padding="5dp"
-        android:contentDescription="Symbole du passeport temporel" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="9dp"
+        android:background="#EAE4D8">
 
-    <!-- 2. Zone droite b weight 0.7 -->
+        <!-- 2. Houni espace photo: fonctionnalite supplementaire optionnelle, moch exigence obligatoire -->
+        <ImageView
+            android:id="@+id/img_photo_hs"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:src="@android:drawable/ic_menu_camera"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="12dp"
+            android:background="#D8CDBB"
+            android:contentDescription="Photo du voyageur"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- 3. Houni indication bech l'utilisateur ya3ref elli ynajjem yzid photo -->
+        <TextView
+            android:id="@+id/tv_ajouter_photo_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="AJOUTER UNE PHOTO"
+            android:textColor="#243B59"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:letterSpacing="0.06"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- 4. Houni esm el service -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="DOUANE"
+            android:textColor="#243B59"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:letterSpacing="0.12" />
+
+        <View
+            android:layout_width="42dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#C6A66B" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="PASSEPORT TEMPOREL"
+            android:textColor="#243B59"
+            android:textSize="9sp"
+            android:gravity="center"
+            android:letterSpacing="0.04" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="EST. 2150"
+            android:textColor="#9B8052"
+            android:textSize="9sp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- 5. Houni el partie droite: 70% mel espace total, RelativeLayout obligatoire -->
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.7"
-        android:padding="12dp"
-        android:background="#F2EBDD">
+        android:padding="16dp"
+        android:background="#F7F4ED">
 
-        <!-- 3. Titre mta3 passeport -->
         <TextView
             android:id="@+id/tv_titre_verification_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PASSEPORT\nTEMPOREL"
-            android:textColor="#263B35"
-            android:textSize="19sp"
+            android:layout_alignParentTop="true"
+            android:text="VÉRIFICATION"
+            android:textColor="#243B59"
+            android:textSize="23sp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:padding="10dp" />
+            android:letterSpacing="0.06" />
 
-        <!-- 4. Affichage esm el voyageur -->
+        <TextView
+            android:id="@+id/tv_sous_titre_verification_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_titre_verification_hs"
+            android:layout_marginTop="5dp"
+            android:text="Contrôle du dossier temporel"
+            android:textColor="#8B8275"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/view_separateur_hs"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_sous_titre_verification_hs"
+            android:layout_marginTop="18dp"
+            android:background="#D8C19A" />
+
+        <TextView
+            android:id="@+id/tv_label_passager_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_separateur_hs"
+            android:layout_marginTop="22dp"
+            android:text="IDENTITÉ DU VOYAGEUR"
+            android:textColor="#9B8052"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
         <TextView
             android:id="@+id/tv_nom_verification_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_titre_verification_hs"
-            android:layout_marginTop="24dp"
-            android:text="Nom :"
-            android:textColor="#263B35"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="10dp" />
+            android:layout_below="@id/tv_label_passager_hs"
+            android:layout_marginTop="7dp"
+            android:text="Nom du voyageur"
+            android:textColor="#243B59"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
-        <!-- 5. Affichage el 3omr temporel -->
+        <View
+            android:id="@+id/view_ligne_nom_hs"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_nom_verification_hs"
+            android:layout_marginTop="15dp"
+            android:background="#E5D5B8" />
+
+        <TextView
+            android:id="@+id/tv_label_age_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_ligne_nom_hs"
+            android:layout_marginTop="20dp"
+            android:text="ÂGE TEMPOREL"
+            android:textColor="#9B8052"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
         <TextView
             android:id="@+id/tv_age_verification_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_nom_verification_hs"
-            android:text="Âge temporel :"
-            android:textColor="#263B35"
-            android:textSize="15sp"
-            android:padding="10dp" />
+            android:layout_below="@id/tv_label_age_hs"
+            android:layout_marginTop="7dp"
+            android:text="Âge"
+            android:textColor="#243B59"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
-        <!-- 6. Affichage sabab el voyage -->
+        <View
+            android:id="@+id/view_ligne_age_hs"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_age_verification_hs"
+            android:layout_marginTop="15dp"
+            android:background="#E5D5B8" />
+
+        <TextView
+            android:id="@+id/tv_label_motif_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_ligne_age_hs"
+            android:layout_marginTop="20dp"
+            android:text="MOTIF DU VOYAGE"
+            android:textColor="#9B8052"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
         <TextView
             android:id="@+id/tv_motif_verification_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_age_verification_hs"
-            android:text="Motif :"
-            android:textColor="#263B35"
+            android:layout_below="@id/tv_label_motif_hs"
+            android:layout_marginTop="7dp"
+            android:text="Motif"
+            android:textColor="#243B59"
             android:textSize="15sp"
-            android:padding="10dp" />
+            android:textStyle="bold" />
 
-        <!-- 7. Bouton bech n9ablou el voyage -->
-        <Button
-            android:id="@+id/btn_approuver_hs"
+        <!-- 6. Houni ligne separation bin les informations wel actions -->
+        <View
+            android:id="@+id/view_ligne_actions_hs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_motif_verification_hs"
-            android:layout_marginTop="26dp"
-            android:text="APPROUVER LE SAUT TEMPOREL"
-            android:textColor="#263B35"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:backgroundTint="#B69A70"
-            android:minHeight="52dp"
-            android:padding="8dp" />
+            android:layout_height="1dp"
+            android:layout_above="@id/btn_approuver_hs"
+            android:layout_marginBottom="16dp"
+            android:background="#D8C19A" />
 
-        <!-- 8. Bouton bech nrefdhou el voyage -->
         <Button
             android:id="@+id/btn_refuser_hs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_approuver_hs"
-            android:layout_marginTop="12dp"
-            android:text="REFUSER LE VOYAGE"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:backgroundTint="#713F43"
-            android:minHeight="52dp"
-            android:padding="8dp" />
+            android:layout_alignParentBottom="true"
+            android:text="Refuser (Risque de paradoxe)"
+            android:textColor="#F7F4ED"
+            android:textSize="11sp"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_bouton_hs"
+            android:backgroundTint="@null"
+            android:minHeight="48dp"
+            android:elevation="3dp" />
+
+        <Button
+            android:id="@+id/btn_approuver_hs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_refuser_hs"
+            android:layout_marginBottom="9dp"
+            android:text="Approuver le saut temporel"
+            android:textColor="#F7F4ED"
+            android:textSize="11sp"
+            android:textAllCaps="false"
+            android:background="@drawable/bg_bouton_hs"
+            android:backgroundTint="@null"
+            android:minHeight="48dp"
+            android:elevation="3dp" />
 
     </RelativeLayout>
 
